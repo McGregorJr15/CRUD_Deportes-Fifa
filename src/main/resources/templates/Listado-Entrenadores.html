@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Entrenadores</title></head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+    <h2>Entrenadores</h2>
+    <p><a th:href="@{/}">Regresar</a> &nbsp;&nbsp; <a th:href="@{/entrenadores/agregar}">Agregar Entrenador</a></p>
+    <table style="border-collapse: collapse; width: 50%; border: 1px solid #ddd; text-align: left;">
+        <thead style="background-color: #e0e0e0;">
+            <tr>
+                <th style="padding: 8px; border: 1px solid #ddd;">id</th>
+                <th style="padding: 8px; border: 1px solid #ddd;">Nombre</th>
+                <th style="padding: 8px; border: 1px solid #ddd;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="e : ${entrenadores}">
+                <td style="padding: 8px; border: 1px solid #ddd;" th:text="${e.id}"></td>
+                <td style="padding: 8px; border: 1px solid #ddd;" th:text="${e.nombre}"></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">
+                    <a th:href="@{/entrenadores/actualizar/{id}(id=${e.id})}">Actualizar</a> &nbsp;
+                    <a th:href="@{/entrenadores/eliminar/{id}(id=${e.id})}">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

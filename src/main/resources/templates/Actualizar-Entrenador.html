@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Actualizar Entrenador</title></head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+    <h2>Entrenadores - Actualizar</h2>
+    <p><a th:href="@{/entrenadores}">Regresar</a></p>
+    <form th:action="@{/entrenadores/guardar}" th:object="${entrenador}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <p>Nombre:<br><input type="text" th:field="*{nombre}" required style="padding: 5px; width: 250px;"/></p>
+        <button type="submit" style="padding: 5px 20px;">Actualizar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Jugadores</title></head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+    <h2>Jugadores</h2>
+    <p><a th:href="@{/}">Regresar</a> &nbsp;&nbsp; <a th:href="@{/jugadores/agregar}">Agregar Jugador</a></p>
+    <table style="border-collapse: collapse; width: 70%; border: 1px solid #ddd; text-align: left;">
+        <thead style="background-color: #e0e0e0;">
+            <tr>
+                <th style="padding: 8px; border: 1px solid #ddd;">id</th>
+                <th style="padding: 8px; border: 1px solid #ddd;">Nombre</th>
+                <th style="padding: 8px; border: 1px solid #ddd;">Posición</th>
+                <th style="padding: 8px; border: 1px solid #ddd;">Número</th>
+                <th style="padding: 8px; border: 1px solid #ddd;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="j : ${jugadores}">
+                <td style="padding: 8px; border: 1px solid #ddd;" th:text="${j.id}"></td>
+                <td style="padding: 8px; border: 1px solid #ddd;" th:text="${j.nombre}"></td>
+                <td style="padding: 8px; border: 1px solid #ddd;" th:text="${j.posicion}"></td>
+                <td style="padding: 8px; border: 1px solid #ddd;" th:text="${j.dorsal}"></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">
+                    <a th:href="@{/jugadores/actualizar/{id}(id=${j.id})}">Actualizar</a> &nbsp;
+                    <a th:href="@{/jugadores/eliminar/{id}(id=${j.id})}">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
